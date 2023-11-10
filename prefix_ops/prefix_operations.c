@@ -15,7 +15,8 @@ void main(){
 
     while(!finish){
         printf("Reading from stdin the expression:\n");
-        scanf("%c %s %s", &op, &operand1, &operand2);
+        fscanf(stdin," %c", &op);
+        fscanf(stdin,"%s %s", operand1, operand2);
         op1 = operand(operand1,prec); //conversion from string2float
         op2 = operand(operand2,prec); //conversion from string2float
 
@@ -33,11 +34,15 @@ void main(){
         case '/':
             res = op1 / op2;
             break;
-        default:
+        case '!':
             printf("Termination case\n");
             finish = 1;
             break;
-        }  
+        default:
+            printf("Wrong operation inserted\n");
+            break;
+        } 
+
         prec = res;
         printf("Risultato: %f\n", res);
 
