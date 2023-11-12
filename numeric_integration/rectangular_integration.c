@@ -3,13 +3,14 @@
 #include <math.h>
 
 #define max 10
-float HornerEvaluation(int P[],float x);
+float HornerEvaluation(int P[max+1],float x);
 
 int main(){
-    int coeff[max]={0}, i;
-    int grade, a, b, M; //grade, extremes, # of intervals
-    float x_tilde, h;   //x_tilde is the median point of the interval h
-    float integral;
+    
+    int coeff[max+1]={0};   //the index corresponds to the grade of the coeff, the content is the coeff itself
+    int grade, a, b, M, i;  //grade, extremes, # of intervals
+    float x_tilde, h;       //x_tilde is the median point of the interval h
+    float integral = 0.0;
 
     printf("Insert the grade: ");
     scanf(" %d", &grade);
@@ -37,6 +38,7 @@ int main(){
 
     //HornerEvalution is called for M times, evaluating the polynom in x_tilde
     for(i=0;i<M;i++){
+        //this for represents the sommatory
         integral = integral + HornerEvaluation(coeff, x_tilde);
         x_tilde = x_tilde + h;
     }
@@ -44,7 +46,7 @@ int main(){
     return 0;
 }
 
-float HornerEvaluation(int P[],float x){
+float HornerEvaluation(int P[max+1],float x){
     float res = 0.0;
     int i;
     //Considering grade=4
