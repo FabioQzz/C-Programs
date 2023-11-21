@@ -16,8 +16,8 @@ int main(){
 }
 
 void mul(int *v1, int *v2, int n, int *v3){
-    int i, j, pos, sum;        //pos is the index of v3: it starts at 2*n+1
-    int carry=0, shift;     //carry of the mul of 2 digits, shift of the res
+    int i, j, pos, sum;         //pos is the index of v3: it starts at 2*n+1
+    int carry=0, shift;         //carry of the mul of 2 digits, shift of the res
 
     for(i=n-1, shift=0; i>=0; i--, shift++ ){  //external loop iterates on v2 multiplicator
         carry= 0;
@@ -33,7 +33,7 @@ void mul(int *v1, int *v2, int n, int *v3){
     }
 
     printf("Product = ");
-    for(j=0; j<2*n; j++)
+    for(j=0; j<2*n; j++){
         printf("%d", v3[j]);
-
+    }
 }
